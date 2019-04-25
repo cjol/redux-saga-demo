@@ -8,6 +8,10 @@ module.exports = {
     compress: true,
     port: 9000
   },
+  entry: {
+    js: ["babel-polyfill", "./src/index.js"],
+    vendor: ["react"]
+  },
   module: {
     rules: [
       {
@@ -17,10 +21,13 @@ module.exports = {
       }
     ]
   },
-  //   entry: "src/index.js",
   output: {
     path: __dirname + "/dist",
-    filename: "index_bundle.js"
+    filename: "[name].bundle.js"
   },
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./index.ejs"
+    })
+  ]
 };

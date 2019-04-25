@@ -1,9 +1,21 @@
 export const actions = {
-  CHANGE_MESSAGE: "change_message"
+  CHANGE_CHARACTER_REQUEST: "change_character/request",
+  CHANGE_CHARACTER_SUCCEED: "change_character/success",
+  CHANGE_CHARACTER_FAIL: "change_character/failure"
 };
 
-//This is the Action Creator
-export const changeMessage = message => ({
-  type: actions.CHANGE_MESSAGE,
+// These are our action creators
+export const changeCharacter = message => ({
+  type: actions.CHANGE_CHARACTER_REQUEST,
   payload: message
+});
+
+export const changeCharacterSucceed = payload => ({
+  type: actions.CHANGE_CHARACTER_SUCCEED,
+  payload
+});
+
+export const changeCharacterFailure = payload => ({
+  type: actions.CHANGE_CHARACTER_FAIL,
+  payload
 });

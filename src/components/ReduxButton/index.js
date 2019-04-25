@@ -1,21 +1,18 @@
 import React from "react";
-import { changeMessage } from "../../store";
+import { changeCharacter } from "../../store";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 //Component one is a button
 export class ReduxButton extends React.Component {
-  onClick = e => {
-    e.preventDefault();
-
-    const newMessage = this.props.message.replace(/\d+/, d => parseInt(d) + 1);
-    this.props.changeMessage(newMessage);
+  onClick = () => {
+    this.props.changeCharacter(this.props.character.id + 1);
   };
 
   render() {
     return (
       <div>
-        <button onClick={this.onClick}>Press Button</button>
+        <button onClick={this.onClick}>Next Character</button>
       </div>
     );
   }
@@ -23,12 +20,12 @@ export class ReduxButton extends React.Component {
 
 //map our the state's message to this property on the components
 let mapStateToProps = function(state) {
-  return { message: state.message };
+  return { character: state.character };
 };
 
 //give these components access to the change message creator
 let mapDispatchToProps = function(dispatch) {
-  return bindActionCreators({ changeMessage }, dispatch);
+  return bindActionCreators({ changeCharacter }, dispatch);
 };
 
 //Make the two components Redux Containers

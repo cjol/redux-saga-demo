@@ -2,10 +2,11 @@ import React from "react";
 import { Provider } from "react-redux";
 import { getStore } from "../../store";
 import { App } from "../App";
+import { hot } from "react-hot-loader/root";
 
 const store = getStore();
 
-export class Root extends React.Component {
+class RootComponent extends React.Component {
   render() {
     return (
       <Provider store={store}>
@@ -14,3 +15,5 @@ export class Root extends React.Component {
     );
   }
 }
+
+export const Root = hot(RootComponent);

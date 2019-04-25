@@ -4,4 +4,4 @@ import ReactDOM from "react-dom";
 import "react-hot-loader";
 import { Root } from "./components/Root";
 
-ReactDOM.render(<Root />, document.getElementsByTagName("body")[0]);
+ReactDOM.render(<Root />, document.getElementsByTagName("div")[0]);
